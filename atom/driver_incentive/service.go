@@ -19,17 +19,3 @@ func GetAllDriverIncentiveUseCase(params url.Values) (utils.PaginationResponse, 
 
 	return paginatedResponse, status, nil
 }
-
-func GetTotalDriverIncentiveUseCase(params url.Values) (utils.PaginationResponse, bool, error) {
-	page, limit := utils.GetPageAndLimit(params)
-
-	data, total, status, err := GetTotalDriverIncentiveDB(params)
-	if err != nil {
-		log.Println("[atom][driver_incentive][GetTotalDriverIncentiveUseCase] error while getting total driver_incentive ")
-		return utils.PaginationResponse{}, false, err
-	}
-
-	paginatedResponse := utils.PaginateResponse(data, total, page, limit)
-
-	return paginatedResponse, status, nil
-}
