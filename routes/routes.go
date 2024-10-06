@@ -55,12 +55,11 @@ func SetupRoutes() *gin.Engine {
 	driverR := route.Group("driver")
 	{
 		driverR.GET("get/all", atom_driver_c.GetAllDriver)
-		driverR.GET("incentive/get/all", atom_driver_incentive_c.GetAllDriverIncentive)
-		driverR.GET("incentive/get/total", atom_driver_incentive_c.GetTotalDriverIncentive)
 		driverR.GET("get/:id", atom_driver_c.GetDriverById)
 		driverR.POST("create", atom_driver_c.CreateDriver)
 		driverR.PUT("update", atom_driver_c.UpdateDriver)
 		driverR.PUT("update/status", atom_driver_c.UpdateDriverStatus)
+		driverR.GET("incentive/get/all", atom_driver_incentive_c.GetAllDriverIncentive)
 	}
 
 	membershipR := route.Group("membership")
